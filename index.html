@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cromosomas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="appWrapper">
+        <div id="configWrapper">
+            <div class="input_item">
+                <label for="inputNGenes">Cantidad de genes.</label>
+                <input type="number" name="inputNGenes" id="inputNGenes" value="10" placeholder="10">
+            </div>
+            <div class="btn_wrapper">
+                <button id="generarCromosoma" class="btn_primary" onclick="agregarCromosoma()">Generar</button>
+            </div>
+        </div>
+        <div id="resultWrapper">
+            <div id="resultCromosoma">
+
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
