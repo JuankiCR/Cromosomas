@@ -9,18 +9,30 @@
 <body>
     <div id="appWrapper">
         <div id="configWrapper">
-            <div class="input_item">
-                <label for="inputNGenes">Cantidad de genes.</label>
-                <input type="number" name="inputNGenes" id="inputNGenes" value="10" placeholder="10">
+            <div class="multiInput">
+                <div class="input_item">
+                    <label for="inputNGenes">Cantidad de cromosomas.</label>
+                    <input type="number" name="inputNGenes" id="inputNGenes" value="10" placeholder="10">
+                </div>
+    
+                <div class="input_item">
+                    <label for="inputNPoblacion">Tamaño de población.</label>
+                    <input type="number" name="inputNPoblacion" id="inputNPoblacion" value="10" placeholder="10">
+                </div>
             </div>
+
             <div class="btn_wrapper">
-                <button id="generarCromosoma" class="btn_primary" onclick="agregarCromosoma()">Generar</button>
+                <button id="btnGenerarGen" class="btn_primary" onclick="generarPoblacion()">Iniciar</button>
+                <button id="btnAgregarGen" class="btn_primary disabled" onclick="generarPoblacion(false)">Agregar generación</button>
             </div>
         </div>
         <div id="resultWrapper">
-            <div id="resultCromosoma">
-
-            </div>
+            <table id="Timeline">
+                <thead id="tlHeader">
+                </thead>
+                <tbody id="tlBody">
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="./script.js"></script>

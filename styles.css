@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 :root{
-    --bg-color: #18181b;
+    --bg-color: #17041c;
     --border-color: #3f3f46;
     --bg-text-light: #fefefe;
 
@@ -15,29 +17,11 @@
     --purple-900: #5c236c;
     --purple-950: #390b47;
 
-    --blue-50: #effbfc;
-    --blue-100: #d8f2f5;
-    --blue-200: #b5e5ec;
-    --blue-300: #82d1de;
-    --blue-400: #48b4c8;
-    --blue-500: #2c98ae;
-    --blue-600: #2a849d;
-    --blue-700: #266478;
-    --blue-800: #275463;
-    --blue-900: #244755;
-    --blue-950: #132d39;
+    --cromosoma-farher: #00289694;
+    --crmosoma-mother: #8a012c8c;
 
-    --green-50: #f3faeb;
-    --green-100: #e3f4d3;
-    --green-200: #c8eaac;
-    --green-300: #a6db7b;
-    --green-400: #85ca51;
-    --green-500: #67af33;
-    --green-600: #589d2a;
-    --green-700: #3d6a21;
-    --green-800: #33551f;
-    --green-900: #2d491e;
-    --green-950: #15270c;
+    --cromosoma-x: #36C284;
+    --cromosoma-y: #C29536;
 }
 
 *{
@@ -50,6 +34,7 @@ body{
     background-color: var(--bg-color);
     color: var(--bg-text-light);
     font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 #appWrapper{
@@ -86,31 +71,60 @@ body{
 /* #################### Resultados #################### */
 
 #resultWrapper{
-    align-items: center;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
     padding: 1rem;
     text-align: center;
+    overflow-x: auto;
     width: 100%;
 }
 
-.cromosomaWrapper{
-    max-width: 1100px;
-    word-wrap: break-word;
+/* Estilo de la tabla */
+#resultWrapper #Timeline{
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.gen_x{
-    color: var(--blue-300);
+#resultWrapper th, #resultWrapper td{
+    border: 1px solid var(--purple-500);
+    padding: 8px;
 }
 
-.gen_y{
-    color: var(--green-300);
+#resultWrapper th{
+    background-color: var(--purple-950);
+    color: var(--bg-text-light);
+    white-space: nowrap;
+}
+
+#resultWrapper tr:nth-child(even){
+    background-color: var(--purple-950);
+}
+
+#resultWrapper tr:nth-child(odd){
+    background-color: var(--purple-900);
+}
+
+/* #################### Estilo de los cromosomas #################### */
+.cromosoma_x{
+    color: var(--cromosoma-x);
+}
+
+.cromosoma_y{
+    color: var(--cromosoma-y);
+}
+
+.from_father{
+    background-color: var(--cromosoma-farher);
+}
+
+.from_mother{
+    background-color: var(--crmosoma-mother);
 }
 
 /* #################### Estilo inputs #################### */
+.input_item{
+    max-width: 400px;
+}
 
 .input_item input{
     background-color: var(--purple-950);
@@ -132,13 +146,26 @@ body{
     outline: none;
 }
 
+.multiInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}	
+
 /* #################### Estilo buttons #################### */
 
 .btn_wrapper{
-    content: "";
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
 }
 
 .btn_primary{
+    cursor: pointer;
     transition: background-color ease .3s;
     background-color: transparent;
     border: 1px solid var(--purple-300);
@@ -147,7 +174,26 @@ body{
     font-size: 1rem;
     outline: none;
     padding: 8px 16px;
+    position: relative;
 }
+
+.btn_primary.disabled::after{
+    transition: right ease .3s,
+                width ease .3s;
+    content: "";
+    position: absolute;
+    width: 0;
+    border-bottom: 2px solid var(--purple-300);
+    top: calc(50%);
+    right: calc(50%);
+}
+
+
+.btn_primary.disabled:hover:after{
+    right: 5%;
+    width: 90%;
+}
+
 
 .btn_primary:hover, .btn_primary:active{
     background-color: var(--purple-950);
