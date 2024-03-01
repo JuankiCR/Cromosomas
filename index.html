@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cromosomas</title>
+    <title>Cromosomas | Menú</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="appWrapper">
-        <div id="configWrapper">
-            <div class="multiInput">
-                <div class="input_item">
-                    <label for="inputNGenes">Cantidad de cromosomas.</label>
-                    <input type="number" name="inputNGenes" id="inputNGenes" value="10" placeholder="10">
-                </div>
-    
-                <div class="input_item">
-                    <label for="inputNPoblacion">Tamaño de población.</label>
-                    <input type="number" name="inputNPoblacion" id="inputNPoblacion" value="10" placeholder="10">
-                </div>
-            </div>
+      <div id="menuWrapper">
 
-            <div class="btn_wrapper">
-                <button id="btnGenerarGen" class="btn_primary" onclick="generarPoblacion()">Iniciar</button>
-                <button id="btnAgregarGen" class="btn_primary disabled" onclick="generarPoblacion(false)">Agregar generación</button>
-            </div>
-        </div>
-        <div id="resultWrapper">
-            <table id="Timeline">
-                <thead id="tlHeader">
-                </thead>
-                <tbody id="tlBody">
-                </tbody>
-            </table>
-        </div>
+        <button class="linkWrapper" onclick="navigateTo('/v1/')">
+          <div id="genesLink" class="linkIcon"></div>
+          <span class="linkTitle">
+            Generador de genes
+          </span>
+        </button>
+
+        <button class="linkWrapper" onclick="navigateTo('/v2/')">
+          <div id="crSimpleLink" class="linkIcon"></div>
+          <span class="linkTitle">
+            Generaciones cruce simple
+          </span>
+        </button>
+
+      </div>
     </div>
     <script src="./script.js"></script>
 </body>
