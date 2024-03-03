@@ -1,11 +1,10 @@
 const generarCadena = (nGenes) => {
-    var cromosoma = "";
+    let cromosoma = "";
     
     for (let i = 0; i < nGenes; i++){
-        cromosoma += Math.floor(Math.random() * 2);
+        cromosoma += Math.random() < 0.5 ? "0" : "1";
     }
     
-    console.log(cromosoma);
     return cromosoma;
 }
 
@@ -15,13 +14,11 @@ const agregarCromosoma = () => {
     cromosomaElement.className = "cromosomaWrapper";
     let nGenes = document.getElementById("inputNGenes").value || 10;
 
-    gen = generarCadena(nGenes);
-
-    genStyled = "";
-
-    [...gen].forEach((cromosoma) => {
-        genStyled += `<span class="${cromosoma == "0" ? "gen_x" : "gen_y"}">${cromosoma}</span>`;
-    });
+    const gen = generarCadena(nGenes);
+    const genStyled = gen
+        .split("")
+        .map(cromosoma => `<span class="${cromosoma === "0" ? "gen_x" : "gen_y"}">${cromosoma}</span>`)
+        .join("");
 
     cromosomaElement.innerHTML = genStyled;
     resultCromosoma.appendChild(cromosomaElement);
