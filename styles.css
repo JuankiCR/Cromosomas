@@ -103,6 +103,10 @@ body{
   mask: url('./assets/icons/generaciones.svg') center/contain no-repeat;
 }
 
+#mtRuletaLink{
+  mask: url('./assets/icons/fitness.svg') center/contain no-repeat;
+}
+
 .linkWrapper:hover{
   background-color: var(--blue-200);
   color: var(--blue-800);

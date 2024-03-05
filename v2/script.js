@@ -1,6 +1,5 @@
 var generacionActual = 1;
 var nPoblacionActual = 10;
-var historialPoblacion = [];
 var poblacionPool = [];
 
 const generarCadenaCromosomas = (nCromosomas) => {

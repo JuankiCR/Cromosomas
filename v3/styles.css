@@ -121,6 +121,37 @@ body{
     background-color: var(--crmosoma-mother);
 }
 
+/* #################### Estilo modal de gráficos #################### */
+#chartModal{
+    transition: opacity ease .3s;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    --web-kit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+#chartModal.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#chartConfig>.input_item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 /* #################### Estilo inputs #################### */
 .input_item{
     max-width: 400px;
@@ -153,6 +184,24 @@ body{
     justify-content: space-evenly;
     width: 100%;
 }	
+
+/* selects */
+.input_item select{
+    background-color: var(--purple-950);
+    border: 1px solid var(--purple-900);
+    border-radius: 5px;
+    color: var(--bg-text-light);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input_item select:focus{
+    border: 1px solid var(--purple-500);
+    outline: none;
+}
+
 
 /* #################### Estilo buttons #################### */
 
