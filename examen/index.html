@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cromosomas | v2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="appWrapper">
+        <div id="configWrapper">
+            <div class="multiInput">
+                <div class="input_item">
+                    <label for="inputNGenes">Cantidad de cromosomas.</label>
+                    <input type="number" name="inputNGenes" id="inputNGenes" value="10" placeholder="10">
+                </div>
+    
+                <div class="input_item">
+                    <label for="inputNPoblacion">Tamaño de población.</label>
+                    <input type="number" name="inputNPoblacion" id="inputNPoblacion" value="10" placeholder="10">
+                </div>
+
+                <div class="input_item">
+                    <label for="selectFitness">Fitness buscado.</label>
+                    <select name="selectFitness" id="selectFitness">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="btn_wrapper">
+                <button id="btnGenerarGen" class="btn_primary" onclick="generarPoblacion()">Iniciar</button>
+                <button id="btnAgregarGen" class="btn_primary disabled" onclick="generarPoblacion(false)">Agregar generación</button>
+                <button id="btnGraficas" class="btn_primary disabled" onclick="showGraficModal()">Graficar</button>
+            </div>
+        </div>
+
+        <div id="resultWrapper">
+            <table id="Timeline">
+                <thead id="tlHeader">
+                </thead>
+                <tbody id="tlBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="chartModal" class="hidden">
+            <div id="chartConfig">
+                <div class="input_item">
+                    <label for="selectGraficar">Graficar:</label>
+                    <select name="selectGraficar" id="selectGraficar">
+                        <option value="1">Generación 1</option>
+                        <option value="2">Generación 2</option>
+                    </select>
+                </div>
+            </div>
+            <div id="chartWrapper">
+                <canvas id="chart"></canvas>
+            </div>
+            <button id="btnCloseChart" class="btn_primary" onclick="hiddeGraficModal()">Cerrar</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

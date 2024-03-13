@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root{
+    --bg-color: #18181b;
+    --border-color: #3f3f46;
+    --bg-text-light: #fefefe;
+
+    --purple-50: #fbf5fe;
+    --purple-100: #f6eafd;
+    --purple-200: #ecd5f9;
+    --purple-300: #dfb3f4;
+    --purple-400: #ce86ec;
+    --purple-500: #b657de;
+    --purple-600: #9b37c2;
+    --purple-700: #802a9d;
+    --purple-800: #6d2583;
+    --purple-900: #5c236c;
+    --purple-950: #390b47;
+
+    --cromosoma-farher: #00289694;
+    --crmosoma-mother: #8a012c8c;
+
+    --cromosoma-x: #36C284;
+    --cromosoma-y: #C29536;
+    --cromosoma-mutado: #000000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--bg-text-light);
+    font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+#appWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: auto;
+    padding: 1rem;
+    max-width: 1200px;
+}
+
+/* #################### Configuracion #################### */
+
+#configWrapper{
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.config_item{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* #################### Resultados #################### */
+
+#resultWrapper{
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Estilo de la tabla */
+#resultWrapper #Timeline{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#resultWrapper th, #resultWrapper td{
+    border: 1px solid var(--purple-500);
+    padding: 8px;
+}
+
+#resultWrapper th{
+    background-color: var(--purple-950);
+    color: var(--bg-text-light);
+    white-space: nowrap;
+}
+
+#resultWrapper tr:nth-child(even){
+    background-color: var(--purple-950);
+}
+
+#resultWrapper tr:nth-child(odd){
+    background-color: var(--purple-900);
+}
+
+/* #################### Estilo de los cromosomas #################### */
+.cromosoma_x{
+    color: var(--cromosoma-x);
+}
+
+.cromosoma_y{
+    color: var(--cromosoma-y);
+}
+
+.from_father{
+    background-color: var(--cromosoma-farher);
+}
+
+.from_mother{
+    background-color: var(--crmosoma-mother);
+}
+
+.mutado{
+    background-color: var(--cromosoma-mutado);
+}
+
+/* #################### Estilo modal de gráficos #################### */
+#chartModal{
+    transition: opacity ease .3s;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    --web-kit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+#chartModal.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#chartConfig>.input_item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* #################### Estilo inputs #################### */
+.input_item{
+    max-width: 400px;
+}
+
+.input_item input{
+    background-color: var(--purple-950);
+    border: 1px solid var(--purple-900);
+    border-radius: 5px;
+    color: var(--bg-text-light);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input_item input::placeholder{
+    color: var(--purple-900);
+}
+
+.input_item input:focus{
+    border: 1px solid var(--purple-500);
+    outline: none;
+}
+
+.multiInput{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-evenly;
+    width: 100%;
+}	
+
+/* selects */
+.input_item select{
+    background-color: var(--purple-950);
+    border: 1px solid var(--purple-900);
+    border-radius: 5px;
+    color: var(--bg-text-light);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input_item select:focus{
+    border: 1px solid var(--purple-500);
+    outline: none;
+}
+
+
+/* #################### Estilo buttons #################### */
+
+.btn_wrapper{
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn_primary{
+    cursor: pointer;
+    transition: background-color ease .3s;
+    background-color: transparent;
+    border: 1px solid var(--purple-300);
+    border-radius: 8px;
+    color: var(--purple-300);
+    font-size: 1rem;
+    outline: none;
+    padding: 8px 16px;
+    position: relative;
+}
+
+.btn_primary.disabled::after{
+    transition: right ease .3s,
+                width ease .3s;
+    content: "";
+    position: absolute;
+    width: 0;
+    border-bottom: 2px solid var(--purple-300);
+    top: calc(50%);
+    right: calc(50%);
+}
+
+
+.btn_primary.disabled:hover:after{
+    right: 5%;
+    width: 90%;
+}
+
+
+.btn_primary:hover, .btn_primary:active{
+    background-color: var(--purple-950);
+}
